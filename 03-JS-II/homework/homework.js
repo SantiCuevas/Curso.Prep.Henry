@@ -107,10 +107,9 @@ function esEntero(numero) {
   // De lo contrario, devuelve "false"
   // Pista: Puedes resolver esto usando `Math.floor`
   // Tu código:
-Number.isInteger(numero)
-if (numero == 0) {
+if (Number.isInteger(numero)){
   return true
-}
+} else return false
 }
 
 function fizzBuzz(numero) {
@@ -160,12 +159,15 @@ function esPrimo(numero) {
   // Pista: un número primo solo es divisible por sí mismo y por 1
   // Pista 2: Puedes resolverlo usando un bucle `for`
   // Nota: Los números 0 y 1 NO son considerados números primos
-  for (numero; numero !== 0 && numero !== 1; numero % numero == 0 && numero % 1 == 0) {
-    return true;
-  } 
-  if (numero == 0 || numero == 1 || numero % numero !==0 || numero % 1 !== 0) {
+   if (numero == 0 || numero == 1 ) {
     return false
-  }
+  } 
+  for (var i = 2; i < numero; i++) {
+    if(numero % i === 0){
+      return false
+    }
+  } 
+return true
 }
 
 function esVerdadero(valor){
@@ -183,16 +185,19 @@ function esVerdadero(valor){
 function tablaDelSeis(){
   //Escribe una función que muestre la tabla de multiplicar del 6 (del 0 al 60).
   //La función devuelve un array con los resultados de la tabla de multiplicar del 6 en orden creciente.
-  //Escribe tu código aquí  
-  for (var i = 0 ; i <= 60; i++ ) {
-  i * 6;
+  //Escribe tu código aquí 
+  var tabla = [] 
+  for (var i = 0; i <= 10; i++ ) {
+  tabla.push(i * 6)
   }
+  return tabla
 }
 
 function tieneTresDigitos(numero){
   //Leer un número entero y retornar true si tiene 3 dígitos. Caso contrario, retorna false.
   //Escribe tu código aquí
-   if (numero.length == 3) {
+  var nstr = numero.toString()
+   if (nstr.length === 3) {
      return true
    } else return false
 }
@@ -201,9 +206,12 @@ function doWhile(numero) {
   //Implementar una función tal que vaya aumentando el valor recibido en 5 hasta un límite de 8 veces
   //Retornar el valor final.
   //Usar el bucle do ... while.
-  do {
-    var N = numero + 5;
-  } while (N < (N * 8))
+  var contador = 0;
+do {
+  numero += 5;
+  contador +=1;
+} while (contador < 8)
+return numero
 }
 
 
